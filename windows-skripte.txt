@@ -1,0 +1,3 @@
+Custom header spoofing
+Invoke-WebRequest -Uri "http://localhost:5000/custom-http-header-spoofing" -Headers @{"x-custom-user-type"="admin"}
+Invoke-WebRequest -Uri "http://localhost:5000/custom-http-header-spoofing" -Headers @{"x-custom-user-type"="user"}
