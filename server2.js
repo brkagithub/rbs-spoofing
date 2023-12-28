@@ -30,13 +30,13 @@ const users = [
 function authenticateJWTToken(req, res, next) {
   const token = req.headers["authorization"];
   if (!token)
-    return res.status(403).send("U zahtevu ne postoji token za autentikaciju.");
+    return res.status(401).send("U zahtevu ne postoji token za autentikaciju.");
 
   try {
     const decodedToken = jwt.decode(token);
     req.user = decodedToken;
   } catch (err) {
-    return res.status(401).send("Nevazeci token.");
+    return res.status(403).send("Nevazeci token.");
   }
 
   next();
