@@ -11,8 +11,10 @@ app.use((req, _, next) => {
 function customHTTPHeaderAuth(req, res, next) {
   const userType = req.headers["x-custom-user-type"];
   if (userType === "admin") {
+    console.log("Admin zahtev prihvacen.");
     next();
   } else {
+    console.log("Zahtev odbijen.");
     res.status(403).send("Pristup zabranjen.");
   }
 }
